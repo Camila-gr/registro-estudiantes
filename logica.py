@@ -96,7 +96,54 @@ def buscar_estudiante():
 
     if not encontrado:
         print("No se encontró ningún estudiante con esa cédula.")
+
+    
         
     print("¡Estudiante registrado exitosamente!")
+
+
+#----------funcion modificar datos----------
+def modificar_estudiante():
+    print("\n--- MODIFICAR ESTUDIANTE ---")
+    estudiantes = cargar_datos()
+    if not estudiantes:
+        print("No hay estudiantes registrados.")
+        return
+
+#ingresar la cedula a buscar
+    cedula = input("Ingrese la cédula del estudiante que desea modificar: ").strip()
+    encontrado = False
+
+    for est in estudiantes:
+        if est['cedula'] == cedula:
+            encontrado = True
+            print(f"Estudiante actual: {est['nombre']} - Nota: {est['nota']}")
+            
+            #nuevos datos
+            nuevo_nombre = input("Nuevo nombre (deje en blanco para no cambiar): ").strip()
+            if nuevo_nombre:
+                est['nombre'] = nuevo_nombre
+
+            nueva_carrera = input("Nueva carrera (deje en blanco para no cambiar): ").strip()
+            if nueva_carrera:
+                est['carrera'] = nueva_carrera
+
+            nueva_nota_str = input("Nueva nota (deje en blanco para no cambiar): ").strip()
+            if nueva_nota_str:
+                try:
+                    nueva_nota = float(nueva_nota_str)
+                    if 0 <= nueva_nota <= 20:
+                        est['nota'] = nueva_nota
+                    else:
+                        print("Nota fuera de rango (0-20). No se modificó la nota.")
+                except ValueError:
+                    print("Valor inválido para la nota. No se modificó la nota.")
+
+            guardar_datos(estudiantes)
+            print("¡Estudiante modificado exitosamente!")
+            break
+
+    if not encontrado:
+        print("No se encontró ningún estudiante con esa cédula.")
     
     
