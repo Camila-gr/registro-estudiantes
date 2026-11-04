@@ -56,6 +56,20 @@ def registrar_estudiante():
     #Añadimos el diccionario y guardamos datos 
     estudiantes.append(nuevo_estudiante)
     guardar_datos(estudiantes)
+
+
+    #---------- Funcion listar estudiantes-----------------------------
+def listar_estudiantes():
+    print("\n---- LISTA DE ESTUDIANTES ----")
+    estudiantes = cargar_datos()
+    
+    if not estudiantes:
+        print("No hay estudiantes registrados.")
+        return
+    
+    for est in estudiantes:
+        print(f"Cédula: {est['cedula']} | Nombre: {est['nombre']} | Carrera: {est['carrera']} | Nota: {est['nota']}")
+        
     print("¡Estudiante registrado exitosamente!")
     
     
