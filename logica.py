@@ -69,6 +69,33 @@ def listar_estudiantes():
     
     for est in estudiantes:
         print(f"Cédula: {est['cedula']} | Nombre: {est['nombre']} | Carrera: {est['carrera']} | Nota: {est['nota']}")
+
+
+    #---------- Funcion buscar estudiante-----------------------------
+def buscar_estudiante():
+    print("\n---- BUSCAR ESTUDIANTE ----")
+    estudiantes = cargar_datos()
+    
+    if not estudiantes:
+        print("No hay estudiantes registrados.")
+        return
+    
+    #Ingresar la cedula a buscar
+    cedula_buscar = input("Ingrese la cédula del estudiante a buscar: ").strip()
+    encontrado = False
+    
+    for est in estudiantes:
+        if est['cedula'] == cedula_buscar:
+            print(f"\n¡Estudiante encontrado!")
+            print(f"Cédula: {est['cedula']}")
+            print(f"Nombre: {est['nombre']}")
+            print(f"Carrera: {est['carrera']}")
+            print(f"Nota: {est['nota']}")
+            encontrado = True
+            break
+
+    if not encontrado:
+        print("No se encontró ningún estudiante con esa cédula.")
         
     print("¡Estudiante registrado exitosamente!")
     
