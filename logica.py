@@ -143,6 +143,27 @@ def modificar_estudiante():
             print("¡Estudiante modificado exitosamente!")
             break
 
+#---------funcion eliminar datos-----------
+        
+def eliminar_estudiante():
+    print("\n--- ELIMINAR ESTUDIANTE ---")
+    estudiantes = cargar_datos()
+    if not estudiantes:
+        print("No hay estudiantes registrados.")
+        return
+    
+    # pide la cédula del estudiante para buscar
+    cedula = input("Ingrese la cédula del estudiante a eliminar: ").strip()
+    
+    #filtra la lista: creando otra lista con los estudiantes que tengan la cedula diferente a la que se busca
+    estudiantes_filtrados = [est for est in estudiantes if est['cedula'] != cedula]
+
+    if len(estudiantes_filtrados) == len(estudiantes):
+        print("No se encontró ningún estudiante con esa cédula.")
+    else:
+        guardar_datos(estudiantes_filtrados)
+        print("¡Estudiante eliminado exitosamente!")
+
     if not encontrado:
         print("No se encontró ningún estudiante con esa cédula.")
     
