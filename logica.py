@@ -166,5 +166,29 @@ def eliminar_estudiante():
 
     if not encontrado:
         print("No se encontró ningún estudiante con esa cédula.")
+
+# ---------- función reporte de promedio y estudiantes aprobados ----------
+def reporte_promedio_y_aprobados():
+    print("\n--- REPORTE: PROMEDIO Y ESTUDIANTES APROBADOS ---")
+    estudiantes = cargar_datos()
+    if not estudiantes:
+        print("No hay estudiantes registrados para generar el reporte.")
+        return
+
+    # Calcular el promedio general de todas las notas
+    total_notas = sum(est['nota'] for est in estudiantes)
+    promedio_general = total_notas / len(estudiantes)
+
+    # Nota aprobatoria mayor o igual a 10 (escala UNEFA)
+    aprobados = [est for est in estudiantes if est['nota'] >= 10]
+
+    print(f"Total de estudiantes evaluados: {len(estudiantes)}")
+    print(f"Promedio general de notas: {promedio_general:.2f}")
+    print(f"\nListado de estudiantes aprobados (Nota >= 10):")
+    if aprobados:
+        for est in aprobados:
+            print(f"- {est['nombre']} (Cédula: {est['cedula']}) | Carrera: {est['carrera']} | Nota: {est['nota']}")
+    else:
+        print("No hay estudiantes aprobados registrados.")  
     
     
