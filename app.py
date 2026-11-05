@@ -1,6 +1,6 @@
 # app.py
 # Menú principal del Sistema de Registro de Estudiantes.
-# Ejecutar con: python app.py
+# Ejecutar con: python app.py 
 
 from logica import (
     registrar_estudiante,
