@@ -1,3 +1,4 @@
+#lectura y guardado de archivos JSON
 import json
 import os
 
