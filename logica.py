@@ -164,8 +164,6 @@ def eliminar_estudiante():
         guardar_datos(estudiantes_filtrados)
         print("¡Estudiante eliminado exitosamente!")
 
-    if not encontrado:
-        print("No se encontró ningún estudiante con esa cédula.")
 
 # ---------- función reporte de promedio y estudiantes aprobados ----------
 def reporte_promedio_y_aprobados():
