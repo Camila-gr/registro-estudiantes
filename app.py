@@ -56,5 +56,5 @@ def main():
 
 
 # Solo se ejecuta cuando abrimos app.py directamente
-if __name__ == "__main__":
+if __name__ == "__main__": 
     main()
